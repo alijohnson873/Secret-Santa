@@ -10,6 +10,10 @@ class SecretSantaContainer extends Component {
     detailsArray: []
   };
 
+  generateRandomIndexNumber = array => Math.floor(Math.random() * array.length);
+
+  matchNames = () => {};
+
   handleSubmit = event => {
     event.preventDefault();
     this.setState({

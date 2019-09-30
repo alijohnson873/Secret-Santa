@@ -6,10 +6,10 @@ class PersonItem extends Component {
 
   render() {
     return (
-      <section class={styles.toDoItem}>
+      <section>
         <h3>{this.props.name}</h3>
         <h4>{this.props.email}</h4>
-        <article class={styles.buttons}>
+        <article>
           <button onClick={() => this.props.handleDelete(this.props.details)}>
             Delete
           </button>
