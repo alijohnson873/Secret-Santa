@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@storybook/react": "^5.2.1",
+    "prop-types": "^15.7.2",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
     "react-materialize": "^3.4.1",

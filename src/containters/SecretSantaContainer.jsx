@@ -7,12 +7,24 @@ class SecretSantaContainer extends Component {
   state = {
     inputValueName: "",
     inputValueEmail: "",
-    detailsArray: []
+    detailsArray: [],
+    randomDetailsArray: []
   };
 
-  generateRandomIndexNumber = array => Math.floor(Math.random() * array.length);
+  shuffleArray = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
-  matchNames = () => {};
+  createRandomArray = event => {
+    event.preventDefault();
+    this.setState({
+      randomDetailsArray: this.shuffleArray(this.state.detailsArray)
+    });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -59,6 +71,11 @@ class SecretSantaContainer extends Component {
             onChange={this.handleChangeNewEmail}
           />
           <input type="submit" value="Submit" onClick={this.handleSubmit} />
+          <input
+            type="submit"
+            value="Generate"
+            onClick={this.createRandomArray}
+          />
         </form>
 
         <section className={styles.toDoItemsWrapper}>
@@ -75,5 +92,11 @@ class SecretSantaContainer extends Component {
     );
   }
 }
+
+PersonItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  handleDelete: PropTypes.func.isRequired
+};
 
 export default SecretSantaContainer;
